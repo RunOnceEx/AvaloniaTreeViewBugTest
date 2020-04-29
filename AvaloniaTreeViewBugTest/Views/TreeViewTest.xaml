@@ -1,0 +1,15 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaloniaTreeViewBugTest.Views.TreeViewTest">
+	<TreeView Items="{Binding Items}" SelectedItems="{Binding SelectedItems}" SelectionMode="{Binding SelectionMode}" Width="250" Height="350">
+		<TreeView.ItemTemplate>
+			<TreeDataTemplate ItemsSource="{Binding Children}">
+				<TextBlock Text="{Binding Header}"/>
+			</TreeDataTemplate>
+		</TreeView.ItemTemplate>
+	</TreeView>
+
+</UserControl>

@@ -1,0 +1,38 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:AvaloniaTreeViewBugTest.ViewModels;assembly=AvaloniaTreeViewBugTest"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="AvaloniaTreeViewBugTest.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="AvaloniaTreeViewBugTest">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+	<Grid
+		ColumnDefinitions="100,*"
+		>
+		<ListBox
+	Name="listPlugins" 
+	  Grid.Column="0"
+	  Items="{Binding Entries}"
+	  SelectedItem="{Binding SelectedEntry, Mode=TwoWay}"
+	  BorderThickness="0"
+	  ScrollViewer.VerticalScrollBarVisibility="Hidden"
+	  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+	  Background="Transparent">
+
+		<ListBox.ItemTemplate>
+			<DataTemplate>
+				<TextBlock Text="{Binding Name}"></TextBlock>
+			</DataTemplate>
+		</ListBox.ItemTemplate>
+	</ListBox>
+		<UserControl Grid.Column="1"  Content="{Binding PopupManager}" />
+	</Grid>
+	
+	
+</Window>
